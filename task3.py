@@ -4,10 +4,18 @@ def foo(tab):
     :param tab: Array given by user
     :return ret: Lowest possible absolute value of all sections' sum that could be found in given array.
     """
-    ret = abs(sum(tab))
+    temp_tab = [0]
+    minimum = tab[0]
 
-    for i in range(len(tab)):
-        for j in range(i + 2, len(tab)):
-            if abs(sum(tab[i:j])) < ret:
-                ret = abs(sum(tab[i:j]))
-    return ret
+    for elem in tab:
+        temp_tab.append(temp_tab[-1] + elem)
+
+    temp_tab.sort()
+
+    for i in range(1, len(temp_tab)):
+        curr = temp_tab[i] - temp_tab[i - 1]
+
+        if curr < minimum:
+            minimum = curr
+
+    return minimum
