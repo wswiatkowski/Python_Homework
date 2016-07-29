@@ -2,7 +2,7 @@ def foo(tab):
     """
     Function counts lowest absolute value of givens array's sections' sum.
     :param tab: Array given by user
-    :return ret: Lowest possible absolute value of all sections' sum that could be found in given array.
+    :return minimum: Lowest possible absolute value of all sections' sum that could be found in given array.
     """
     temp_tab = [0]
     minimum = tab[0]
